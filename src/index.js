@@ -9,6 +9,7 @@ const keepalive = require("./server.js");
 const client = new Client({ intents: GatewayIntentBits.Guilds });
 client.commands = new Collection();
 client.commandsArray = [];
+client.color = 0x2977f5;
 
 client.once("ready", (client) => {
   console.log(`Logged in as ${client.user.tag}`);
@@ -40,13 +41,19 @@ client.on("interactionCreate", async (interaction) => {
   }
 });
 
-const clientId = "1158315384290684949";
 const rest = new REST({ version: "9" }).setToken(process.env.TOKEN);
 
 try {
-  rest.put(Routes.applicationCommands(clientId), {
+  rest.put(Routes.applicationCommands(process.env.CLIENTID), {
     body: client.commandsArray,
   });
+
+  // rest
+  //   .delete(
+  //     Routes.applicationCommand(process.env.CLIENTID, "1158341017687310357"),
+  //   )
+  //   .then(() => console.log("Successfully deleted application command"))
+  //   .catch(console.error);
 } catch (err) {
   console.error(err);
 }

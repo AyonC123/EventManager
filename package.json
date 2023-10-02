@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon node ."
+    "dev": "nodemon ."
   },
   "keywords": [],
   "author": "AyonC123",
