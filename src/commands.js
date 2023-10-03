@@ -63,7 +63,7 @@ export default [
     async execute(interaction, client) {
       const sheet = interaction.options.getString("sheet");
       const embed = new EmbedBuilder()
-        .setDescription(`Set ${sheet} as the current sheet.`)
+        .setDescription(`Set \`${sheet}\` as the current sheet.`)
         .setColor(client.color)
         .setFooter({
           iconURL: client.user.displayAvatarURL(),
@@ -228,8 +228,6 @@ export default [
           for (let i = 0; i < tags.length; i++) {
             newTags[tags[i]["name"]] = tags[i]["id"];
           }
-
-          console.log(newTags);
 
           forum.threads.create({
             name: data["compName"],
