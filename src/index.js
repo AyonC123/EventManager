@@ -1,10 +1,11 @@
-require("dotenv").config();
-const { Client, Collection, GatewayIntentBits } = require("discord.js");
-const { REST } = require("@discordjs/rest");
-const { Routes } = require("discord-api-types/v9");
+import {} from "dotenv/config";
+import { Client, Collection, GatewayIntentBits } from "discord.js";
+import { REST } from "@discordjs/rest";
+import { Routes } from "discord-api-types/v9";
+
 const token = process.env.TOKEN;
-const commands = require("./commands.js");
-const keepalive = require("./server.js");
+import commands from "./commands.js";
+import keepalive from "./server.js";
 
 const client = new Client({ intents: GatewayIntentBits.Guilds });
 client.commands = new Collection();
